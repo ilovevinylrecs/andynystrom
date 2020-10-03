@@ -1,2 +1,2 @@
 # andynystrom
-Personal website - homepage
+Personal website

@@ -1,5 +1,28 @@
 import Head from 'next/head'
 
+const Menu = () => {
+    return <div className="section align-items-start">
+    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
+      ABOUT
+    </a>
+    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
+      CONTACT
+    </a>
+    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
+      GITHUB
+    </a>
+    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
+      FLATFILE
+    </a>
+    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
+      MUSIC
+    </a>
+    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
+      VINYL
+    </a>
+  </div>
+}
+
 export default function Home() {
   return (
     <div className="home">
@@ -16,29 +39,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title my-row col align-items-center my-col">
+        <h1 className="title align-items-center">
          ANDY NYSTROM
         </h1>
-          <div className="section row align-items-start my-row">
-            <h2 className="col-lg-2 align-items-center my-col">
-              ABOUT
-            </h2>
-            <h2 className="col-lg-2 align-items-center my-col">
-              CONTACT
-            </h2>
-            <h2 className="col-lg-2 align-items-center my-col">
-              GITHUB
-            </h2>
-            <h2 className="col-lg-2 align-items-center my-col">
-              FLATFILE
-            </h2>
-            <h2 className="col-lg-2 align-items-center my-col">
-              MUSIC
-            </h2>
-            <h2 className="col-lg-2 align-items-center my-col">
-              VINYL
-            </h2>
-          </div>
+          <Menu />             
       </main>
 
       <style jsx>{`
@@ -65,22 +69,6 @@ export default function Home() {
           font-size: 10vw;
         }
 
-
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
       `}</style>
     </div>
   )

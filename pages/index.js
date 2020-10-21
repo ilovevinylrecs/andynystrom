@@ -1,26 +1,32 @@
 import Head from 'next/head'
+import Link from 'next/link'
+
 
 const Menu = () => {
     return <div className="section align-items-start row">
-    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
-      ABOUT
-    </a>
-    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
-      CONTACT
-    </a>
-    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
-      GITHUB
-    </a>
-    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
-      FLATFILE
-    </a>
-    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
-      MUSIC
-    </a>
-    <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
-      VINYL
-    </a>
-  </div>
+      <Link href="/about">
+        <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
+        ABOUT</a>
+      </Link>
+
+      <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
+        FLATFILE
+      </a>
+
+      <Link href="https://github.com/ilovevinylrecs">
+      <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
+        GITHUB
+      </a>
+      </Link>
+
+      <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
+        MUSIC
+      </a>
+
+      <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
+        VINYL
+      </a>
+    </div>
 }
 
 export default function Home() {
@@ -39,10 +45,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title align-items-center">
+        <h1 className="title container-fluid align-items-center">
          ANDY NYSTROM
         </h1>
-          <Menu />             
+        <Menu />             
       </main>
 
       <style jsx>{`
@@ -50,14 +56,11 @@ export default function Home() {
 
         .home {
           font-family: 'Raleway', sans-serif;
-          padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 100%;
-          margin: 0;
-          padding: 0;
+          width: 85%;
           text-align: center;
           position: absolute;
           top: 50%;

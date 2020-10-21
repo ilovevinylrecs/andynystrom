@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 const Menu = () => {
-    return <div className="section align-items-start">
+    return <div className="section align-items-start row">
     <a className="h2 col-lg-2 align-items-center" style={{ color: "black" }}>
       ABOUT
     </a>

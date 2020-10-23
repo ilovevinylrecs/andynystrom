@@ -8,24 +8,27 @@ const Menu = () => {
         <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
         ABOUT</a>
       </Link>
+      
+      <Link href="/flatfile">
+        <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
+          FLATFILE</a>
+      </Link>
 
-      <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
-        FLATFILE
-      </a>
-
-      <Link href="https://github.com/ilovevinylrecs">
+      
+      <a href="https://github.com/ilovevinylrecs" className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
+        GITHUB</a>
+      
+      
+      <Link href="/messages">
       <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
-        GITHUB
+        MESSAGES
       </a>
       </Link>
 
-      <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
-        MUSIC
-      </a>
-
-      <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
-        VINYL
-      </a>
+      <Link href="/vinyl">
+        <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
+          VINYL</a>
+      </Link>
     </div>
 }
 
@@ -70,6 +73,12 @@ export default function Home() {
 
         .title {
           font-size: 10vw;
+        }
+
+        a:hover {
+          color: black;
+          font-weight: bold;
+          text-decoration: none;
         }
 
       `}</style>

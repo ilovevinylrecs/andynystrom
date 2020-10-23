@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-function About() {
+export default function About() {
     return (
       <div>
         <Head>
@@ -58,4 +58,3 @@ function About() {
   )
 }
 
-export default About

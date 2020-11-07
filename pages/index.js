@@ -19,7 +19,7 @@ const Menu = () => {
         GITHUB</a>
       
       
-      <Link href="/messages">
+      <Link href="/messages-contentful">
       <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
         MESSAGES
       </a>

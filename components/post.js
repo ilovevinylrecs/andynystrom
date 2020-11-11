@@ -1,14 +1,20 @@
+import Link from 'next/link'
 
-export default function Post({ date, image, title }) {
+
+export default function Post({ alt, date, image, title, url }) {
     let { file, description } = image
   
     return (
       <div className="post">
-        <img alt={description} src={`https:${file.url}`} />
+        <Link href="{url}">
+          <a><img alt={description} src={`https:${file.url}`} />
+          </a>
+        </Link>
         <div className="text">
           <h2>{title}</h2>
           <h3>{date.substring(0, 10)}</h3>
         </div>
+          
   
         <style jsx>{`
           .post {

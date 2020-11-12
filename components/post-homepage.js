@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 
-export default function Post({ alt, date, image, title, url }) {
+export default function Post({ date, image, title }) {
     let { file, description } = image
   
     return (

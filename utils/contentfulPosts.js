@@ -1,5 +1,5 @@
-const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+const space = process.env.CONTENTFUL_SPACE_ID
+const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
 
 const client = require('contentful').createClient({
   space: space,
@@ -12,4 +12,10 @@ export async function fetchEntries() {
   console.log(`Error getting Entries for ${contentType.name}.`)
 }
 
-export default { fetchEntries }
+export async function fetchEntry(entryId) {
+  const entry = await client.getEntry(entryId);
+  if (entry.items) return entry.items
+  console.log(`Error getting Entry for ${contentType.name}.`)
+}
+
+export default { fetchEntries, fetchEntry }

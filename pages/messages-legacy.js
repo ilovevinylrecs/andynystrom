@@ -8,7 +8,7 @@ import Link from 'next/link'
 import Date from '../components/date'
 
 
-export default function Messages ({ allPostsData }) {
+export default function MessagesLegacy ({ allPostsData }) {
   return (
     <Layout home>
       <Head>

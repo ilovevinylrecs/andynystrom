@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { fetchEntries } from '../utils/contentfulPosts'
-import Post from '../components/post'
+import Post from '../components/post-homepage'
 
-export default function Home({ posts }) {
+export default function Messages({ posts }) {
   return (
     <div className="container">
       <Head>
@@ -14,7 +14,7 @@ export default function Home({ posts }) {
         <h1 className="messages">Messages</h1>
         <div className="posts">
           {posts.map((p) => {
-            return <Post key={p.date} date={p.date} image={p.image.fields} title={p.title} />
+            return <Post date={p.date} image={p.image.fields} title={p.title} />
           })}
         </div>
       </main>

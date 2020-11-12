@@ -1,36 +1,45 @@
-import posts from '../../posts.json'
+import { fetchEntry } from '../../utils/contentfulPosts'
 
 
-const Post = props => {
-    return (
+const Messages = ({ posts }) => {
+
+  return (
+
+      <div>
+        <h1>Messages</h1>
         <div>
-            <h1>{props.post.title}</h1>
-            <p>{props.post.content}</p>
+          {posts.map((p) => {
+            return <MessagePost date={p.date} image={p.image.fields} title={p.title} />
+          })}
         </div>
-    )
+      </div>
+  );
+
+};
+
+export default Messages;
+
+
+export async function getStaticPaths() {
+
+  const paths = [
+
+    { params: {} }
+
+  ];
+
+  return { paths, fallback: false};
+
 }
 
-Post.getInitialProps = ({ query }) => {
-    return {
-        post: posts[query.id]
-    }
-}
-
-
-// export async function getStaticProps({ params }) {
-//     const id = params.id
-//     const res = await fetchEntries()
-//     const posts = await res.map((p) => {
-//       return p.fields
-//     })
   
-//     return {
-//       props: {
-//         posts,
-//       },
-//     }
-//   }
+export async function getStaticProps(params) {
+  
+  const id = params.params.id;
 
+  return {
 
+    props: { id, name: "Andy" },
 
-export default Post
+  };
+}

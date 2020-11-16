@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import { fetchEntries } from '../utils/contentfulPosts'
-import Post from '../components/post-homepage'
+import { fetchEntries } from '../../utils/contentfulPosts'
+import Post from '../../components/post-homepage'
 
 export default function Messages({ posts }) {
   return (

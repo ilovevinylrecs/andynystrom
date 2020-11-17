@@ -6,10 +6,7 @@ export default function Post({ date, image, title }) {
 
     return (
       <div className="post">
-        <Link href="{url}">
-          <a><img alt={description} src={`https:${file.url}`} />
-          </a>
-        </Link>
+          <img alt={description} src={`https:${file.url}`} />
         <div className="text">
           <h2>{title}</h2>
           <h3>{date.substring(0, 10)}</h3>

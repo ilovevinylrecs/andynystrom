@@ -1,6 +1,6 @@
-//server side (when you print to the console, in the terminal here, not on site)
-
 import * as contentful from 'contentful'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
 
 export default async (req, res) => {
     const client = contentful.createClient({

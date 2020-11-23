@@ -29,23 +29,7 @@ export default function Home() {
         <h2>{message.fields.date.substring(0, 10)}</h2>
         <img src={message.fields.image.fields.file.url} />
         
-        {/* const document = {
-            nodeType: 'document',
-            content: [
-                {
-                nodeType: 'paragraph',
-                content: [
-                    {
-                    nodeType: 'text',
-                    value: 'Hello world!',
-                    marks: [],
-                    },
-                ],
-                },
-            ],
-        }
-            
-        documentToHtmlString(document); */}
+
 
         <nav>
             <h2><Link href="/messages"><a>return to messages</a></Link></h2>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Head from 'next/head'
 
 
@@ -9,9 +9,17 @@ export default function Home() {
     const router = useRouter()
     const [messages, setMessages] = useState([])
     
-    useEffect(async () => {
-        const data = await fetch('/api/messages')
-        setMessages(await data.json())
+    // useEffect(async () => {
+    //     const data = await fetch('/api/messages')
+    //     setMessages(await data.json())
+    // }, [])
+
+    useEffect(() => {
+        async function fetchData(){
+            const data = await fetch('/api/messages')
+            setMessages(await data.json())
+        }
+        fetchData();
     }, [])
     
     let message = null
@@ -24,42 +32,47 @@ export default function Home() {
 
     if (!message) return 'Message not found.'
     
-    return (<div>
+    return <div>
         <h1>{message.fields.title}</h1>
         <h2>{message.fields.date.substring(0, 10)}</h2>
         <img src={message.fields.image.fields.file.url} />
+        <p>{documentToReactComponents(message.fields.body)}</p> 
         
-
-
         <nav>
-            <h2><Link href="/messages"><a>return to messages</a></Link></h2>
+            <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>
         </nav>
 
         <style jsx>{`
-                h1,
-                h2,
-                h3 {
-                margin: 10px;
-                }
-                h2 {
-                font-size: 12px;
-                }
-                h3 {
-                margin-top: 0;
-                font-size: 10px;
-                font-weight: 400;
-                }
-                img {
-                width: 85%;
-                max-width: 500px;
-                height: auto;
-                padding: 0px 0px 10px 10px;
-                }
-                h1 {
-                font-size: 20px;
-                font-weight: 400;
-                }
-            `}</style>        
-        </div>
-    )
+            h1 {
+            margin: 10px;
+            font-size: 20px;
+            font-weight: 10000;
+            }
+            h2 {
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            }
+            h3 {
+            margin: 10px;
+            font-size: 14px;
+            font-weight: 400;
+            }
+            p {
+            margin: 10px;
+            width: 85%;
+            font-size: 12px;
+            }
+            img {
+            width: 85%;
+            max-width: 500px;
+            height: auto;
+            padding: 0px 0px 10px 10px;
+            }
+            nav {
+            padding: 50px 0px 50px 0px;    
+            }             
+        `}</style>        
+    </div>
+
 }

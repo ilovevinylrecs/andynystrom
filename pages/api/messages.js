@@ -1,6 +1,4 @@
 import * as contentful from 'contentful'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
 
 
 export default async (req, res) => {

@@ -7,9 +7,9 @@ export default async (req, res) => {
 
     const vinyls = await new Discogs
         ('ilovevinylrecs/1.0').user().collection();
-    vinyls.getReleases('ilovevinylrecs', 0, {page: 1, per_page: 50}, function(err, data){
-    console.log(data); 
-    })  
+    
+    const releases = await vinyls.getReleases('ilovevinylrecs', 0, {page: 1, per_page: 100})
+        return res.json(releases)  
 }
 
 

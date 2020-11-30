@@ -33,14 +33,16 @@ export default function Home() {
     if (!message) return 'Message not found.'
     
     return <div>
-        <h1>{message.fields.title}</h1>
-        <h2>{message.fields.date.substring(0, 10)}</h2>
-        <img src={message.fields.image.fields.file.url} />
-        <p>{documentToReactComponents(message.fields.body)}</p> 
-        
-        <nav>
-            <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>
-        </nav>
+       
+            <h1>{message.fields.title}</h1>
+            <h2>{message.fields.date.substring(0, 10)}</h2>
+            <img src={message.fields.image.fields.file.url} />
+            <p>{documentToReactComponents(message.fields.body)}</p> 
+            
+            <nav>
+                <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>
+            </nav>
+       
 
         <style jsx>{`
             h1 {

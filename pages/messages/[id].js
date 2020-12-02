@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import Head from 'next/head'
 
 
@@ -9,11 +10,6 @@ export default function Home() {
     const router = useRouter()
     const [messages, setMessages] = useState([])
     
-    // useEffect(async () => {
-    //     const data = await fetch('/api/messages')
-    //     setMessages(await data.json())
-    // }, [])
-
     useEffect(() => {
         async function fetchData(){
             const data = await fetch('/api/messages')
@@ -31,14 +27,26 @@ export default function Home() {
     }
 
     if (!message) return 'Message not found.'
+
+    // const Code = ({ children }) => <p className="code">{children}</p>;
     
+    // const options = {
+    // renderMark: {
+    //     [MARKS.CODE]: text => <Code>{text}</Code>
+    // }
+    // renderNode: {
+    //     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+    // },
+    // renderText: text => text.replace('!', '?'),
+    // }
+
     return <div>
        
             <h1>{message.fields.title}</h1>
             <h2>{message.fields.date.substring(0, 10)}</h2>
             <img src={message.fields.image.fields.file.url} />
-            <p>{documentToReactComponents(message.fields.body)}</p> 
-            
+            <p>{documentToReactComponents(message.fields.body)}</p>
+
             <nav>
                 <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>
             </nav>

@@ -23,6 +23,7 @@
     "@contentful/rich-text-html-renderer": "^14.1.2",
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "contentful": "^7.14.14",
+    "dangerously-set-html-content": "^1.0.8",
     "date-fns": "^2.16.1",
     "discogs": "^0.4.4",
     "disconnect": "^1.2.1",

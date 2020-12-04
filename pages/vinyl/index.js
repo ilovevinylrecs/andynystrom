@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 export default function Vinyl() {
@@ -16,28 +16,21 @@ export default function Vinyl() {
 
   if (releases.length === 0) return 'No records found.'
 
-  let record = null
-
-  // for (let i = 0; i < releases.length; i++) {
-  //     if (releases[i].id === router.query.id) {
-  //         record  = releases[i]
-  //     }
-  // }
-  
-  // if (!record) return 'Collection not found.'
-
   console.log(releases)
-
-  console.log(record)
 
   return (
     <div>
       <h1>Record Collection</h1>
+      
+      {releases.releases.map((release) => (
+        
+        <ul>
+          <li>
+            {release.basic_information.artists.name} - {release.basic_information.title} {release.basic_information.formats.descriptions} {release.basic_information.year}
+          </li>
+        </ul>
+      ))}
 
-      {/* {releases.map((record) =>
-        <h2>{record.releases.basic_information}</h2>
-      )} */}
-
-    </div>   
+    </div>
   )
 }

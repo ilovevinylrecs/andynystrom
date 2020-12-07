@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import Head from 'next/head'
 
@@ -45,7 +45,14 @@ export default function Home() {
             <h1>{message.fields.title}</h1>
             <h2>{message.fields.date.substring(0, 10)}</h2>
             <img src={message.fields.image.fields.file.url} />
-            <p>{documentToReactComponents(message.fields.body)}</p>
+
+            <p>
+                <div dangerouslySetInnerHTML={
+                {
+                    __html: documentToHtmlString(message.fields.body)
+                }
+                }></div>
+            </p>
 
             <nav>
                 <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>

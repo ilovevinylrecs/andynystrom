@@ -16,20 +16,52 @@ export default function Vinyl() {
 
   if (releases.length === 0) return 'No records found.'
 
-  console.log(releases)
 
   return (
     <div>
       <h1>Record Collection</h1>
+
+      <p>total collection: {releases.pagination.items}</p>
+
+      {/* <Link href={releases.pagination.urls.first}><a>
+      first page
+      </a></Link> */}
+
+      {/* <br></br>
+
+      <Link href={releases.pagination.urls.prev}><a>
+      prev page
+      </a></Link> */}
+
+      <p>
+      <Link href={releases.pagination.urls.next}><a>
+      next
+      </a></Link>
+      </p>
+      
+      <p>
+      <Link href={releases.pagination.urls.last}><a>
+      last
+      </a></Link>
+      </p>
       
       {releases.releases.map((release) => (
         
         <ul>
           <li>
-            {release.basic_information.artists.name} - {release.basic_information.title} {release.basic_information.formats.descriptions} {release.basic_information.year}
+          {release.basic_information.artists[0].name} - {release.basic_information.title} ({release.basic_information.formats[0].descriptions[0]}) {release.basic_information.year}
           </li>
         </ul>
       ))}
+
+      <style jsx>{`
+      h1,
+      h3,
+      p {
+      margin: 10px;
+      }
+
+    `}</style>
 
     </div>
   )

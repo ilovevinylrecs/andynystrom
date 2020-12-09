@@ -5,11 +5,6 @@ import Link from 'next/link'
 export default function Home() {
     const [messages, setMessages] = useState([])
     
-    // useEffect(async() =>  {
-    //     const data = await fetch(`/api/messages`)
-    //     setMessages(await data.json())
-    // }, [])
-
     useEffect(() => {
         async function fetchData(){
             const data = await fetch('/api/messages')

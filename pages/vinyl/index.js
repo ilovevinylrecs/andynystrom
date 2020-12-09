@@ -6,13 +6,21 @@ export default function Vinyl() {
 
   const [releases, setReleases] = useState([])
 
+  const [page, setPage] = useState(1)
+
+  const onClickNextButton = () => setPage(page + 1)
+
+  const onClickPrevButton = () => {
+    if (page > 1) setPage(page - 1)
+  }
+
   useEffect(() => {
     async function fetchData(){
-        const data = await fetch('/api/vinyls')
+        const data = await fetch(`/api/vinyls?page=${page}`)
         setReleases(await data.json())
     }
     fetchData();
-  }, [])
+  }, [page])
 
   if (releases.length === 0) return 'No records found.'
 
@@ -23,27 +31,17 @@ export default function Vinyl() {
 
       <p>total collection: {releases.pagination.items}</p>
 
-      {/* <Link href={releases.pagination.urls.first}><a>
-      first page
-      </a></Link> */}
+      <p>page: {page}</p>
 
-      {/* <br></br>
+      {/* <div>
+        <button onClick={() => setPage(page + 1)}>
+        Next
+        </button>
+      </div> */}
 
-      <Link href={releases.pagination.urls.prev}><a>
-      prev page
-      </a></Link> */}
-
-      <p>
-      <Link href={releases.pagination.urls.next}><a>
-      next
-      </a></Link>
-      </p>
-      
-      <p>
-      <Link href={releases.pagination.urls.last}><a>
-      last
-      </a></Link>
-      </p>
+    <div className="button">
+      <a href="#" onClick={onClickNextButton}>Next</a> | <a href="#" onClick={onClickPrevButton}>Prev</a>
+    </div>
       
       {releases.releases.map((release) => (
         
@@ -57,10 +55,10 @@ export default function Vinyl() {
       <style jsx>{`
       h1,
       h3,
-      p {
-      margin: 10px;
+      p,
+      .button {
+      margin: 10px 0px 10px 25px;
       }
-
     `}</style>
 
     </div>

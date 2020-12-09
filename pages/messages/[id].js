@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
-import Head from 'next/head'
 
 
 export default function Home() {
@@ -27,18 +25,6 @@ export default function Home() {
     }
 
     if (!message) return 'Message not found.'
-
-    // const Code = ({ children }) => <p className="code">{children}</p>;
-    
-    // const options = {
-    // renderMark: {
-    //     [MARKS.CODE]: text => <Code>{text}</Code>
-    // }
-    // renderNode: {
-    //     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-    // },
-    // renderText: text => text.replace('!', '?'),
-    // }
 
     return <div>
        

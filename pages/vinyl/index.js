@@ -40,14 +40,14 @@ export default function Vinyl() {
       </div> */}
 
     <div className="button">
-      <a href="#" onClick={onClickNextButton}>Next</a> | <a href="#" onClick={onClickPrevButton}>Prev</a>
+      <a href="#" onClick={onClickPrevButton}>Prev</a> | <a href="#" onClick={onClickNextButton}>Next</a>
     </div>
       
       {releases.releases.map((release) => (
         
         <ul>
           <li>
-          {release.basic_information.artists[0].name} - {release.basic_information.title} ({release.basic_information.formats[0].descriptions[0]}) {release.basic_information.year}
+          {release.basic_information.artists[0].name.replace(/\s\(\d+\)$/, '')} - {release.basic_information.title} ({release.basic_information.formats[0].descriptions[0]}) {release.basic_information.year}
           </li>
         </ul>
       ))}

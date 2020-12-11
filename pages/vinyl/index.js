@@ -33,33 +33,38 @@ export default function Vinyl() {
 
       <p>page: {page}</p>
 
-      {/* <div>
-        <button onClick={() => setPage(page + 1)}>
-        Next
-        </button>
-      </div> */}
-
     <div className="button">
-      <a href="#" onClick={onClickPrevButton}>Prev</a> | <a href="#" onClick={onClickNextButton}>Next</a>
+      <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
     </div>
       
       {releases.releases.map((release) => (
         
         <ul>
-          <li>
-          {release.basic_information.artists[0].name.replace(/\s\(\d+\)$/, '')} - {release.basic_information.title} ({release.basic_information.formats[0].descriptions[0]}) {release.basic_information.year}
-          </li>
+          <img src={release.basic_information.thumb} />
+
+          {release.basic_information.artists[0].name.replace(/\s\(\d+\)$/, '')} - {release.basic_information.title}  
+          <br />
+          {release.basic_information.formats[0].text} {release.basic_information.formats[0].descriptions[0]}
+          <br />
+          {release.basic_information.labels[0].name.replace(/\s\(\d+\)$/, '')} | {release.basic_information.year} 
         </ul>
       ))}
 
-      <style jsx>{`
-      h1,
-      h3,
-      p,
-      .button {
-      margin: 10px 0px 10px 25px;
-      }
-    `}</style>
+    <div className="button">
+      <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
+    </div>
+
+    <style jsx>{`
+    h1,
+    h3,
+    p,
+    .button {
+    margin: 10px 0px 10px 25px;
+    }
+    ul {
+    margin: 10px 0px 0px -15px; 
+    }
+  `}</style>
 
     </div>
   )

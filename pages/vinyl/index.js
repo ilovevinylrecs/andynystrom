@@ -36,19 +36,23 @@ export default function Vinyl() {
     <div className="button">
       <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
     </div>
-      
-      {releases.releases.map((release) => (
-        
-        <ul>
-          <img src={release.basic_information.thumb} />
 
-          {release.basic_information.artists[0].name.replace(/\s\(\d+\)$/, '')} - {release.basic_information.title}  
-          <br />
-          {release.basic_information.formats[0].text} {release.basic_information.formats[0].descriptions[0]}
-          <br />
-          {release.basic_information.labels[0].name.replace(/\s\(\d+\)$/, '')} | {release.basic_information.year} 
-        </ul>
-      ))}
+      <div className="container">
+           {releases.releases.map((release) => (
+            <ul>
+              <img src={release.basic_information.thumb} />
+              {release.basic_information.artists[0].name.replace(/\s\(\d+\)$/, '')} 
+              <br />
+              {release.basic_information.title}  
+              <br />
+              {release.basic_information.formats[0].text} {release.basic_information.formats[0].descriptions[0]}
+              <br />
+              {release.basic_information.labels[0].name.replace(/\s\(\d+\)$/, '')}
+              <br />
+              {release.basic_information.year} 
+            </ul>
+          ))}  
+      </div>
 
     <div className="button">
       <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
@@ -63,6 +67,14 @@ export default function Vinyl() {
     }
     ul {
     margin: 10px 0px 0px -15px; 
+    }
+    .container {
+      width: 95%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-auto-rows: auto;
+      grid-row-gap: 0px;
+      grid-column-gap: 0px;
     }
   `}</style>
 

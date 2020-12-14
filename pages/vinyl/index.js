@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import FadeIn from 'react-fade-in';
 import Link from 'next/link'
 
 
@@ -36,7 +37,7 @@ export default function Vinyl() {
     <div className="button">
       <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
     </div>
-
+    <FadeIn delay={200} transitionDuration={1000}>
       <div className="container">
            {releases.releases.map((release) => (
             <ul>
@@ -53,6 +54,7 @@ export default function Vinyl() {
             </ul>
           ))}  
       </div>
+    </FadeIn>
 
     <div className="button">
       <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>

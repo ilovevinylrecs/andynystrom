@@ -10,7 +10,7 @@ const Menu = () => {
       </Link>
       
       <Link href="/flatfile">
-        <a className="h2 col-lg align-items-center" style={{ color: "black" }}>
+        <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
           FLATFILE</a>
       </Link>
 

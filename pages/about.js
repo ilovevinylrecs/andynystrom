@@ -4,9 +4,7 @@ export default function About() {
     return (
       <div>
         <Head> 
-          <title>Andy Nystrom - About</title>
-  
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+          <title>Andy Nystrom - About</title>       
         </Head>
 
         <main className="about">
@@ -48,7 +46,7 @@ export default function About() {
             }
 
         `}</style>
-    </div>
+      </div>
   )
 }
 

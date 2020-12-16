@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 
 
 export default function Home() {
@@ -19,15 +20,18 @@ export default function Home() {
 
     return (
         <div className="post">
+            <Head>
+                <title>Andy Nystrom - Messages</title>
+            </Head>
+                
+            <h1>Messages</h1>
             
-        <h1>Messages</h1>
-        
             {messages.map((message) =>
             <Link href={`/messages/${message.sys.id}`}><a>
                 
                 <h2>{message.fields.title}</h2>
                 <h3>{message.fields.date.substring(0, 10)}</h3>
-                  
+                    
                 <img src={message.fields.image.fields.file.url} />
 
             

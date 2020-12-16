@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import FadeIn from 'react-fade-in';
+import FadeIn from 'react-fade-in'
+import Head from 'next/head'
 
 
 export default function Home() {
@@ -19,6 +20,9 @@ export default function Home() {
 
     return (
         <div>
+            <Head>
+                <title>Andy Nystrom - Flatfile</title>
+            </Head>
             
             <h1>Flatfile</h1>
 
@@ -65,7 +69,7 @@ export default function Home() {
             display: block;
             width: auto;
             height: auto;
-              }
+                }
             `}</style>
         </div>
     )

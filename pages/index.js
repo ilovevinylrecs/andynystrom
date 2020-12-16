@@ -32,16 +32,10 @@ const Menu = () => {
     </div>
 }
 
-export default function Home() {
+export default function Homepage() {
   return (
     <div className="home">
       <Head>
-        <meta
-        charSet="UTF-8"
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-        />
-
         <title>Andy Nystrom - Home</title>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
@@ -75,11 +69,7 @@ export default function Home() {
           font-size: 10vw;
         }
 
-        a:hover {
-          color: black;
-          font-weight: bold;
-          text-decoration: none;
-        }
+       
 
       `}</style>
     </div>

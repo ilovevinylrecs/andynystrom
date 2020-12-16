@@ -5,6 +5,7 @@ body {
   font-family: monospace;
   line-height: 1.6;
   font-size: 12px;
+  background-color: #f7f7f7;
 }
 
 a {
@@ -12,12 +13,8 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 a:hover {
-  box-shadow: 15px 5px 15px 5px #ff69b4;
+  background-color: yellow;
 }
 
 a:link {
@@ -36,16 +33,4 @@ a:active {
   color: black;
   font-weight: bold;
   text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-  width: auto;
-  height: auto;
-}
-
-.track-cover {
-  height: 200px;
-  margin: 0px 5px 0px 0px;
 }

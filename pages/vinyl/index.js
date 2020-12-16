@@ -71,12 +71,18 @@ export default function Vinyl() {
     margin: 10px 0px 0px -15px; 
     }
     .container {
-      width: 95%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      grid-auto-rows: auto;
-      grid-row-gap: 0px;
-      grid-column-gap: 0px;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: auto;
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+    }
+    img {
+    max-width: 100%;
+    display: block;
+    width: auto;
+    height: auto;
     }
   `}</style>
 

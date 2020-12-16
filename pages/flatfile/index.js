@@ -28,13 +28,16 @@ export default function Home() {
                     {posters.map((poster) => 
                         <ul>
                         <img src={poster.fields.posterImage.fields.file.url} />
-                        {poster.fields.artist} - {poster.fields.title} 
+                        {poster.fields.title} ({poster.fields.year})
                         <br />
-                        {poster.fields.posterSize}
+                        {poster.fields.artist}
                         <br />
-                        Run Size: {poster.fields.runSize}
+                        {poster.fields.posterSize}, {poster.fields.version} {poster.fields.format}
                         <br />
-                        {poster.fields.version} | {poster.fields.format} | {poster.fields.year}
+                        Run: {poster.fields.runSize}
+                        <br />
+                        {/* {poster.fields.format} */}
+                        
                         </ul>    
                     )}
                 </div>
@@ -47,19 +50,22 @@ export default function Home() {
             }
             ul {
             margin: 10px 0px 0px -15px;
-            text-align: justify;
-            }
-            img  {
-            border: 1px solid #CCC;
+            text-align: left;
             }
             .container {
             width: 95%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             grid-auto-rows: auto;
-            grid-row-gap: 5px;
-            grid-column-gap: 5px;
+            grid-row-gap: 0px;
+            grid-column-gap: 0px;
             }
+            img {
+            max-width: 100%;
+            display: block;
+            width: auto;
+            height: auto;
+              }
             `}</style>
         </div>
     )

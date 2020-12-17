@@ -32,7 +32,7 @@ const Menu = () => {
     </div>
 }
 
-export default function Homepage() {
+export default function Home() {
   return (
     <div className="home">
       <Head>
@@ -64,13 +64,9 @@ export default function Homepage() {
           left: 50%;
           transform: translateX(-50%) translateY(-50%);
         }
-
         .title {
           font-size: 10vw;
         }
-
-       
-
       `}</style>
     </div>
   )

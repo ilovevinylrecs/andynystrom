@@ -17,7 +17,7 @@ export default function About() {
             </p>
             
             <p>
-            Andy is mostly obsessed with music and vinyl records (all genres, mostly 1980 - today), alternative movie posters and pop art, comic books and
+            Andy is mostly obsessed with music and vinyl records (all genres, mostly 1970 - today), alternative movie posters and pop art, comic books and
             graphic novels, and web development.
             </p>
             

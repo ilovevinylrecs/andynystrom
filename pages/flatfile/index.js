@@ -32,6 +32,7 @@ export default function Home() {
                     {posters.map((poster) => 
                         <ul>
                         <img src={poster.fields.posterImage.fields.file.url} />
+                        <div className="description">
                         {poster.fields.title} ({poster.fields.year})
                         <br />
                         {poster.fields.artist}
@@ -39,9 +40,7 @@ export default function Home() {
                         {poster.fields.posterSize}, {poster.fields.version} {poster.fields.format}
                         <br />
                         Run: {poster.fields.runSize}
-                        <br />
-                        {/* {poster.fields.format} */}
-                        
+                        </div>
                         </ul>    
                     )}
                 </div>
@@ -50,26 +49,29 @@ export default function Home() {
 
             <style jsx>{`
             h1 {
-            margin: 10px 0px 10px 25px;
+            margin: 10px 0px 10px 20px;
             }
             ul {
-            margin: 10px 0px 0px -15px;
+            margin: 10px 0px 0px -20px;
             text-align: left;
             }
             .container {
-            width: 95%;
+            width: 90%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             grid-auto-rows: auto;
             grid-row-gap: 0px;
             grid-column-gap: 0px;
             }
             img {
-            max-width: 100%;
+            max-width: 95%;
             display: block;
             width: auto;
             height: auto;
-                }
+            }
+            .description {
+            padding: 5px 0px 10px 0px;
+            }
             `}</style>
         </div>
     )

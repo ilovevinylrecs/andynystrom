@@ -80,7 +80,7 @@ export default function Vinyl() {
       .container {
       width: 95%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-auto-rows: auto;
       grid-row-gap: 0px;
       grid-column-gap: 0px;

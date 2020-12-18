@@ -66,6 +66,7 @@ export default function Home() {
         }
         .title {
           font-size: 10vw;
+          padding: 0px 0px 0px 0px;
         }
       `}</style>
     </div>

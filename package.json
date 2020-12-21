@@ -1,0 +1,42 @@
+{
+  "name": "andynystrom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilovevinylrecs/andynystrom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilovevinylrecs/andynystrom/issues"
+  },
+  "homepage": "https://github.com/ilovevinylrecs/andynystrom#readme",
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.2",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
+    "bootstrap": "^4.5.3",
+    "contentful": "^7.14.14",
+    "dangerously-set-html-content": "^1.0.8",
+    "date-fns": "^2.16.1",
+    "discogs": "^0.4.4",
+    "disconnect": "^1.2.1",
+    "gray-matter": "^4.0.2",
+    "next": "^9.5.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-fade-in": "^1.1.1",
+    "reactstrap": "^8.7.1",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
+    "styled-components": "^5.2.1",
+    "use-dark-mode": "^2.3.1"
+  }
+}

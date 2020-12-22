@@ -1,6 +1,5 @@
 import * as contentful from 'contentful'
 
-
 export default async (req, res) => {
     const client = contentful.createClient({
         space: process.env.CONTENTFUL_SPACE_ID,

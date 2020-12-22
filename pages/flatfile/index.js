@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import FadeIn from 'react-fade-in'
 import Head from 'next/head'
 
-
 export default function Home() {
     const [posters, setPosters] = useState([])
     

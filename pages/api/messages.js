@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     const messages = await client.getEntries({
         content_type: 'post',
-        order: 'sys.createdAt'
+        order: '-sys.createdAt'
       })
     res.json(messages.items)
 }

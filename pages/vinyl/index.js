@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import FadeIn from 'react-fade-in';
 import Head from 'next/head'
 
-
 export default function Vinyl() {
 
   const [releases, setReleases] = useState([])
@@ -24,7 +23,6 @@ export default function Vinyl() {
   }, [page])
 
   if (releases.length === 0) return 'No records found.'
-
 
   return (
     <div>

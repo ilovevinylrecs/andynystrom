@@ -6,9 +6,9 @@ export default async (req, res) => {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     });
 
-    const messages = await client.getEntries({
-        content_type: 'post',
-        order: '-sys.createdAt'
-      })
-    res.json(messages.items)
+    const about = await client.getEntries({
+        content_type: 'about',
+    })
+
+    res.json(about.items)
 }

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
-
 export default function Home() {
     const router = useRouter()
     const [messages, setMessages] = useState([])
@@ -77,5 +76,4 @@ export default function Home() {
             }             
         `}</style>        
     </div>
-
 }

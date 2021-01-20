@@ -1,4 +1,3 @@
-
 export default async (req, res) => {
     const { page = 1 } = req.query
     const Discogs = require('disconnect').Client;({
@@ -14,5 +13,3 @@ export default async (req, res) => {
         
     res.json(releases)  
 }
-
-

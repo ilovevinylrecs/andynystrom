@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-
 const Menu = () => {
     return <div className="section align-items-start row">
       <Link href="/about">
@@ -14,10 +13,8 @@ const Menu = () => {
           FLATFILE</a>
       </Link>
 
-      
       <a href="https://github.com/ilovevinylrecs" className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">
         GITHUB</a>
-      
       
       <Link href="/messages">
       <a className="h2 col-lg align-items-center" style={{ color: "black" }} target="_blank">

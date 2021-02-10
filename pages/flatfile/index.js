@@ -13,7 +13,7 @@ export default function Home() {
         fetchData();
     }, [])
   
-    if (posters.length === 0) return 'No posters found.'
+    if (posters.length === 0) return 'loading all my posters, hang tight.'
     
     console.log(posters)
 

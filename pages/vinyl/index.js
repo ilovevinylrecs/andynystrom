@@ -22,7 +22,7 @@ export default function Vinyl() {
     fetchData();
   }, [page])
 
-  if (releases.length === 0) return 'No records found.'
+  if (releases.length === 0) return 'loading records (there are a lot of them), hang tight.'
 
   return (
     <div>

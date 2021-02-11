@@ -6,7 +6,7 @@ Built with Next.js (https://nextjs.org/)
 
 Hosted by Vercel
 
-Legacy folder contains original website built with HTML
+Legacy folder contains original website built with HTML, CSS, JS
 
 Sections:
 About - pulls in about content via Contentful API

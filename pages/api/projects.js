@@ -6,9 +6,10 @@ export default async (req, res) => {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     });
 
-    const about = await client.getEntries({
-        content_type: 'about',
+    const projects = await client.getEntries({
+        content_type: 'project',
+        order: 'fields.title'
     });
 
-    res.json(about.items);
+    res.json(projects.items);
 }

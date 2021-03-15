@@ -24,10 +24,11 @@ export default function Projects() {
         <h1>Projects</h1>
 
         {project.map((projectContent) =>
-            <Link href={projectContent.fields.projectUrl}><a target="_blank">
+            <React.Fragment>
                 <h2>{projectContent.fields.title}</h2>
-                <img src={projectContent.fields.image.fields.file.url} />
-
+                <Link href={projectContent.fields.projectUrl}><a target="_blank">
+                    <img src={projectContent.fields.image.fields.file.url} />
+                </a></Link>
                 <p>
                     <div dangerouslySetInnerHTML={
                         {
@@ -35,30 +36,28 @@ export default function Projects() {
                         }
                     }></div>
                 </p>
-            </a></Link>
+            </React.Fragment>
         )}
 
         <style jsx>{`
             h1 {
-                font-size: 20px;
-                font-weight: 400;
-                margin: 10px;
+                font-size: 2rem;
+                margin: 1rem 1rem 0rem 2rem;
                 }
             h2 {
-                margin-bottom: 0;
-                font-size: 12px;
-                margin: 10px;
+                font-size: 1.5rem;
+                margin: 1rem 1rem 1rem 2rem;
                 }
             img {
                 width: 100%;
                 max-width: 300px;
                 height: auto;
-                padding: 0px 0px 10px 10px;
+                padding: 0rem 1rem 0rem 2rem;
                 }
             p {
-                margin: 10px 0px 10px 20px;
                 width: 90%;
-                font-size: 12px;
+                font-size: 1rem;
+                margin: 0rem 1rem 3rem 2rem;
                 }
             `}</style>
     </div>

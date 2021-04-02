@@ -6,43 +6,43 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 export default function Home() {
     const router = useRouter()
     const [messages, setMessages] = useState([])
-    
+
     useEffect(() => {
-        async function fetchData(){
+        async function fetchData() {
             const data = await fetch('/api/messages')
             setMessages(await data.json())
         }
         fetchData();
     }, [])
-    
+
     let message = null
 
     for (let i = 0; i < messages.length; i++) {
         if (messages[i].sys.id === router.query.id) {
-            message  = messages[i]
+            message = messages[i]
         }
     }
 
     if (!message) return 'Message not found.'
 
     return <div>
-       
-            <h1>{message.fields.title}</h1>
-            <h2>{message.fields.date.substring(0, 10)}</h2>
-            <img src={message.fields.image.fields.file.url} />
 
-            <p>
-                <div dangerouslySetInnerHTML={
+        <h1>{message.fields.title}</h1>
+        <h2>{message.fields.date.substring(0, 10)}</h2>
+        <img src={message.fields.image.fields.file.url} />
+
+        <p>
+            <div dangerouslySetInnerHTML={
                 {
                     __html: documentToHtmlString(message.fields.body)
                 }
-                }></div>
-            </p>
+            }></div>
+        </p>
 
-            <nav>
-                <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>
-            </nav>
-       
+        <nav>
+            <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>
+        </nav>
+
 
         <style jsx>{`
             h1 {
@@ -74,6 +74,6 @@ export default function Home() {
             nav {
             padding: 50px 0px 50px 0px;    
             }             
-        `}</style>        
+        `}</style>
     </div>
 }

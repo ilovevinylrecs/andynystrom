@@ -15,8 +15,6 @@ export default function Home() {
 
     if (posters.length === 0) return 'loading all my posters, hang tight.'
 
-    console.log(posters)
-
     return (
         <div>
             <Head>

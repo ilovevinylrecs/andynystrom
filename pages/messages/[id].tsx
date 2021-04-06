@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
+
+const dev = process.env.NODE_ENV !== 'production';
+
+const server = dev ? 'http://localhost:3000' : 'https://andynystrom.com/';
+
 export async function getServerSideProps(context) {
     const {id} = context.query
 
-    const res = await fetch(`http://localhost:3000/api/messages/${id}`)
+    const res = await fetch(`${server}/api/messages/${id}`)
     const post = await res.json()
  
     return { props: { post } }

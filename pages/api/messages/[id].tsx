@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   });
     const { id } = req.query
-    // res.end(`Post: ${id}`)
     
     const entry = await client.getEntry(id);
     res.json(entry)

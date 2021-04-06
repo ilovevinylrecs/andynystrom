@@ -1,5 +1,5 @@
 import * as contentful from 'contentful'
-
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req, res) {
   const client = contentful.createClient({

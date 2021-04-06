@@ -7,15 +7,13 @@ export default function Home() {
     
     useEffect(() => {
         async function fetchData(){
-            const data = await fetch('/api/messages')
+            const data = await fetch('/api/messages/messages')
             setMessages(await data.json())
         }
         fetchData();
     }, [])
   
     if (messages.length === 0) return 'No messages found.'
-    
-    console.log(messages)
 
     return (
         <div className="post">

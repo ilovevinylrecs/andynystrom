@@ -7,7 +7,7 @@ export default function Home() {
     
     useEffect(() => {
         async function fetchData(){
-            const data = await fetch('/api/messages/messages')
+            const data = await fetch('/api/messages')
             setMessages(await data.json())
         }
         fetchData();

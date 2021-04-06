@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export default function Page() {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState<any>([])
     
     useEffect(() => {
         async function fetchData(){

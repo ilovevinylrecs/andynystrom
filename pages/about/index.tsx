@@ -15,8 +15,6 @@ export default function Home() {
 
     if (about.length === 0) return 'No about section found.'
 
-    console.log(about)
-
     return (
         <div>
             <Head>

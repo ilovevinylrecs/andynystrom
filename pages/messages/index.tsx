@@ -14,8 +14,6 @@ export default function Home() {
     }, [])
   
     if (messages.length === 0) return 'No messages found.'
-    
-    console.log(messages)
 
     return (
         <div className="post">

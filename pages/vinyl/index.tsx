@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 export default function Vinyl() {
 
-  const [releases, setReleases] = useState([])
+  const [releases, setReleases] = useState<any>([])
 
   const [page, setPage] = useState(1)
 

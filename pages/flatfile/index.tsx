@@ -4,43 +4,41 @@ import Head from 'next/head'
 
 export default function Home() {
     const [posters, setPosters] = useState([])
-    
+
     useEffect(() => {
-        async function fetchData(){
+        async function fetchData() {
             const data = await fetch('/api/flatfile')
             setPosters(await data.json())
         }
         fetchData();
     }, [])
-  
+
     if (posters.length === 0) return 'loading all my posters, hang tight.'
-    
-    console.log(posters)
 
     return (
         <div>
             <Head>
                 <title>Andy Nystrom - Flatfile</title>
             </Head>
-            
+
             <h1>Flatfile</h1>
 
             <FadeIn delay={200} transitionDuration={1000}>
 
                 <div className="container">
-                    {posters.map((poster) => 
+                    {posters.map((poster) =>
                         <ul>
-                        <img src={poster.fields.posterImage.fields.file.url} />
-                        <div className="description">
-                        {poster.fields.title} ({poster.fields.year})
+                            <img src={poster.fields.posterImage.fields.file.url} />
+                            <div className="description">
+                                {poster.fields.title} ({poster.fields.year})
                         <br />
-                        {poster.fields.artist}
-                        <br />
-                        {poster.fields.posterSize}, {poster.fields.version} {poster.fields.format}
-                        <br />
+                                {poster.fields.artist}
+                                <br />
+                                {poster.fields.posterSize}, {poster.fields.version} {poster.fields.format}
+                                <br />
                         Run: {poster.fields.runSize}
-                        </div>
-                        </ul>    
+                            </div>
+                        </ul>
                     )}
                 </div>
 

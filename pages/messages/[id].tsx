@@ -1,31 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import router from 'next/router'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export default function Page() {
-    const [posts, setPosts] = useState<any>([])
+    const router = useRouter();
+    const [message, setMessage] = useState(null)
     
     useEffect(() => {
-        async function fetchData(){
+        async function fetchData() {
             const id = router.query.id;
+            console.log(id)
             const data = await fetch(`/api/messages/${id}`)
-            setPosts(await data.json())
+            console.log(data)
+            setMessage(await data.json())   
         }
         fetchData();
     }, [])
   
-    if (posts.length === 0) return 'No messages found.'
+    if (!message) return 'No messages found.'
 
     return (
         <div>
             <>
-            <h1>{posts.fields.title}</h1>
-            <h2>{posts.fields.date.substring(0, 10)}</h2>
-            <img src={posts.fields.image.fields.file.url} />
-            <p>
-                <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(posts.fields.body)}}></div>
-            </p>
+            <h1>{message.fields.title}</h1>
+            <h2>{message.fields.date.substring(0, 10)}</h2>
+            <img src={message.fields.image.fields.file.url} />
+            
+            <p dangerouslySetInnerHTML={{ __html: documentToHtmlString(message.fields.body)}}></p>
+            
             </>
             <nav>
             <h3 className="nav"><Link href="/messages"><a>return to messages</a></Link></h3>

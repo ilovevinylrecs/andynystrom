@@ -6,8 +6,8 @@ export default async function handler(req, res) {
     // environment: this defaults to 'master'
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   });
-    const { id } = req.query
 
+    const { id } = req.query
     const entry = await client.getEntry(id);
     res.json(entry)
 }

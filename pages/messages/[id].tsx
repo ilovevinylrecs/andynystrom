@@ -4,19 +4,23 @@ import Link from 'next/link'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export default function Page() {
-    const router = useRouter();
-    const [message, setMessage] = useState(null)
+        const router = useRouter();
+        console.log(router)
+        const { id } = router.query;
+        console.log(id)
+
+        const [message, setMessage] = useState(null);
     
-    useEffect(() => {
-        async function fetchData() {
-            const id = router.query.id;
-            console.log(id)
-            const data = await fetch(`/api/messages/${id}`)
-            console.log(data)
-            setMessage(await data.json())   
-        }
-        fetchData();
-    }, [])
+        useEffect(() => {
+            
+            async function fetchData() {
+                const data = await fetch(`/api/messages/${ id }`)
+                setMessage(await data.json())
+            }
+            fetchData();
+        }, [router]);
+
+        console.log(router);
   
     if (!message) return 'No messages found.'
 

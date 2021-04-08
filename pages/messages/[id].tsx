@@ -7,16 +7,19 @@ export default function Page() {
         const router = useRouter();
         const { id } = router.query;
 
+        console.log(router);
+
         const [message, setMessage] = useState(null);
-    
+
         useEffect(() => {
+            if(!id) return;
             
             async function fetchData() {
                 const data = await fetch(`/api/messages/${ id }`)
                 setMessage(await data.json())
             }
             fetchData();
-        }, [router]);
+        }, [id]);
   
     if (!message) return 'No messages found.'
 

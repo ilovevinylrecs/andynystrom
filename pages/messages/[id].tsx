@@ -5,9 +5,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 export default function Page() {
         const router = useRouter();
-        console.log(router)
         const { id } = router.query;
-        console.log(id)
 
         const [message, setMessage] = useState(null);
     
@@ -19,8 +17,6 @@ export default function Page() {
             }
             fetchData();
         }, [router]);
-
-        console.log(router);
   
     if (!message) return 'No messages found.'
 

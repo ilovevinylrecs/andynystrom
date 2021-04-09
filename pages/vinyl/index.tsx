@@ -70,10 +70,10 @@ export default function Vinyl() {
       h3,
       p,
       .button {
-      margin: 10px 0px 10px 25px;
+      margin: 10px 0px 10px 15px;
       }
       ul {
-      margin: 10px 0px 0px -15px; 
+      margin: 10px 0px 0px -25px; 
       }
       .container {
       width: 95%;

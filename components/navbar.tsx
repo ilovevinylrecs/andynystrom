@@ -4,13 +4,13 @@ export const Navbar = () => {
     return (
         <div className="navbar">
             <ul>
-                <li><Link href="/">HOME</Link></li>
-                <li><Link href="/about">ABOUT</Link></li>
-                <li><Link href="/flatfile">FLATFILE</Link></li>
-                <li><a href="https://github.com/ilovevinylrecs" target="_blank">GITHUB</a></li>
-                <li><Link href="/messages">MESSAGES</Link></li>
-                <li><Link href="/projects">PROJECTS</Link></li>
-                <li><Link href="/vinyl">VINYL</Link></li>
+                <li><Link href="/"><a>HOME</a></Link></li>
+                <li><Link href="/about"><a>ABOUT</a></Link></li>
+                <li><Link href="/flatfile"><a>FLATFILE</a></Link></li>
+                <li><a href="https://github.com/ilovevinylrecs">GITHUB</a></li>
+                <li><Link href="/messages"><a>MESSAGES</a></Link></li>
+                <li><Link href="/projects"><a>PROJECTS</a></Link></li>
+                <li><Link href="/vinyl"><a>VINYL</a></Link></li>
             </ul>
 
             <style jsx>{`

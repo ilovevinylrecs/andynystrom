@@ -46,10 +46,11 @@ export default function Home() {
 
             <style jsx>{`
             h1 {
-            margin: 10px 0px 10px 20px;
+            margin: 2rem 0rem 2rem 1.5rem;
+            font-size: 2rem;
             }
             ul {
-            margin: 10px 0px 0px -20px;
+            margin: 2rem 0rem 2rem -1.5rem;
             text-align: left;
             }
             .container {
@@ -67,7 +68,7 @@ export default function Home() {
             height: auto;
             }
             .description {
-            padding: 5px 0px 10px 0px;
+            padding: 0.5rem 0rem 1rem 0rem;
             }
             `}</style>
         </div>

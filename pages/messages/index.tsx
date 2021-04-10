@@ -16,7 +16,7 @@ export default function Home() {
     if (messages.length === 0) return 'No messages found.'
 
     return (
-        <div className="post">
+        <div>
             <Head>
                 <title>Andy Nystrom - Messages</title>
             </Head>
@@ -34,55 +34,24 @@ export default function Home() {
             )}
         
             <style jsx>{`
-                .post {
-                position: relative;
-                margin: 10px;
-                width: 300px;
-                color: black;
-                cursor: pointer;
-                }
-                .description {
-                position: absolute;
-                top: 0;
-                padding: 10px;
-                box-sizing: border-box;
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%);
-                height: 100px;
-                opacity: 0;
-                transition: opacity 0.5s;
-                }
-                .text {
-                position: absolute;
-                bottom: 0px;
-                padding: 20px 0px 5px 10px;
-                box-sizing: border-box;
-                width: 100%;
-                height: 70px;
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0) 100%);
-                }
-                h1,
-                h2,
-                h3 {
-                margin: 10px;
+                h1 {
+                margin: 2rem 0rem 2rem 1.5rem;
+                font-size: 2rem;
                 }
                 h2 {
-                margin-bottom: 0;
-                font-size: 12px;
+                margin: 3rem 0rem 0rem 1.5rem;
+                font-size: 1rem;
                 }
                 h3 {
-                margin-top: 0;
-                font-size: 10px;
+                margin: 0rem 0rem 0rem 1.5rem;
+                font-size: 1rem;
                 font-weight: 400;
                 }
                 img {
                 width: 100%;
                 max-width: 300px;
                 height: auto;
-                padding: 0px 0px 10px 10px;
-                }
-                h1 {
-                font-size: 20px;
-                font-weight: 400;
+                padding: 0px 0px 0rem 1.5rem;
                 }
             `}</style>
         </div>

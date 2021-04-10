@@ -35,12 +35,13 @@ export default function Home() {
 
             <style jsx>{`
             h1 {
-            margin: 10px 0px 10px 20px;
+            margin: 2rem 0rem 2rem 1.5rem;
+            font-size: 2rem;
             }
             p {
-            margin: 10px 0px 10px 20px;
+            margin: 2rem 0rem 2rem 1.5rem;
             width: 90%;
-            font-size: 12px;
+            font-size: 1rem;
             }
             `}</style>
         </div>

@@ -41,24 +41,24 @@ export default function Projects() {
 
         <style jsx>{`
             h1 {
-                font-size: 2rem;
-                margin: 1rem 1rem 0rem 2rem;
-                }
+            font-size: 2rem;
+            margin: 2rem 0rem 2rem 1.5rem;
+            }
             h2 {
-                font-size: 1.5rem;
-                margin: 1rem 1rem 1rem 2rem;
-                }
+            font-size: 1.5rem;
+            margin: 1rem 1rem 1rem 1.5rem;
+            }
             img {
-                width: 100%;
-                max-width: 300px;
-                height: auto;
-                padding: 0rem 1rem 0rem 2rem;
-                }
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            padding: 0rem 1rem 0rem 1.5rem;
+            }
             p {
-                width: 90%;
-                font-size: 1rem;
-                margin: 0rem 1rem 3rem 2rem;
-                }
+            width: 90%;
+            font-size: 1rem;
+            margin: 0rem 1rem 3rem 1.5rem;
+            }
             `}</style>
     </div>
 }

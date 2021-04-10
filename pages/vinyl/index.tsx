@@ -66,29 +66,32 @@ export default function Vinyl() {
       </div>
 
       <style jsx>{`
-      h1,
-      h3,
-      p,
-      .button {
-      margin: 10px 0px 10px 15px;
-      }
-      ul {
-      margin: 10px 0px 0px -25px; 
-      }
-      .container {
-      width: 95%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      grid-auto-rows: auto;
-      grid-row-gap: 0px;
-      grid-column-gap: 0px;
-      }
-      img {
-      max-width: 100%;
-      display: block;
-      width: auto;
-      height: auto;
-      }
+        h1 {
+        font-size: 2rem;
+        margin: 2rem 0rem 2rem 1.5rem;
+        }
+        p,
+        .button {
+        margin: 1rem 0rem 1rem 1.5rem;
+        font-size: 1rem;
+        }
+        ul {
+        margin: 1rem 0rem 0rem -2rem; 
+        }
+        .container {
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-auto-rows: auto;
+        grid-row-gap: 0px;
+        grid-column-gap: 0px;
+        }
+        img {
+        max-width: 100%;
+        display: block;
+        width: auto;
+        height: auto;
+        }
       `}</style>
     </div>
   )

@@ -15,11 +15,11 @@ export const Navbar = () => {
 
             <style jsx>{`
             ul {
-                padding: 2rem 1rem 2rem 0.5rem;
+                padding: 2rem 1rem 2rem 1.5rem;
             }
             li {
                 display: inline;
-                padding: 1.5rem 1rem 2rem 1rem;
+                padding: 1.5rem 1rem 2rem 0rem;
             }
             hr {
                 width: 60%;

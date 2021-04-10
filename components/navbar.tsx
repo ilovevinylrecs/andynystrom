@@ -3,7 +3,7 @@ import Link from 'next/link'
 export const Navbar = () => {
     return (
         <div className="navbar">
-            <ul>
+            <ul className="main-nav">
                 <li><Link href="/"><a>HOME</a></Link></li>
                 <li><Link href="/about"><a>ABOUT</a></Link></li>
                 <li><Link href="/flatfile"><a>FLATFILE</a></Link></li>
@@ -14,21 +14,55 @@ export const Navbar = () => {
             </ul>
 
             <style jsx>{`
-            ul {
-                padding: 2rem 1rem 2rem 1.5rem;
+            @media (max-width: 767px) and (min-width: 320px) /*mobile menu*/ {
+                .navbar {
+                    text-align: center; 
+                }
+                .navbar a {
+                    float: center;
+                    color: silver;
+                }
+                .main-nav li {
+                    list-style-type: none;
+                    margin: 1rem 3rem 1rem 0rem;
+                }
+                .navbar:after {
+                    align: center;
+                    content: "";
+                    display: block;
+                    margin: 0 auto; 
+                    width: 100px;
+                    padding-top: 0.5rem;
+                    border-bottom: 1px solid silver;
+                }
             }
-            li {
-                display: inline;
-                padding: 1.5rem 1rem 2rem 0rem;
-            }
-            hr {
-                width: 60%;
-                height: 1px;
-                background-color: light grey;
-                padding: 0.5rem 0rem 0.5rem 0rem;
+            @media screen and (min-width: 768px) /*desktop menu*/ {
+                .navbar a {
+                    float: center;
+                    color: silver;
+                }
+                .main-nav {
+                    display: block;
+                    text-align: center;
+                    padding: 2rem 1rem 0rem 1.5rem;
+                    font-size: 1rem;
+                }
+                .main-nav li {
+                    display: inline-block;
+                    padding: 1.5rem 1rem 0rem 1.5rem;
+                    margin: auto;
+                    list-style-type: none;
+                }
+                .navbar:after {
+                    content: "";
+                    display: block;
+                    margin: 0 auto; 
+                    width: 550px;
+                    padding-top: 0.5rem;
+                    border-bottom: 1px solid silver;
+                }   
             }
             `}</style>
-
         </div>
     )
 }

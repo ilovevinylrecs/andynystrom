@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 export const Navbar = () => {
+
     return (
         <div className="navbar">
             <ul className="main-nav">
@@ -14,6 +15,7 @@ export const Navbar = () => {
             </ul>
 
             <style jsx>{`
+            
             @media (max-width: 767px) and (min-width: 320px) /*mobile menu*/ {
                 .navbar {
                     text-align: center; 
@@ -44,23 +46,24 @@ export const Navbar = () => {
                 .main-nav {
                     display: block;
                     text-align: center;
-                    padding: 2rem 1rem 0rem 1.5rem;
+                    padding: 2rem 0rem 0rem 0rem;
                     font-size: 1rem;
                 }
-                .main-nav li {
+                li {
                     display: inline-block;
-                    padding: 1.5rem 1rem 0rem 1.5rem;
-                    margin: auto;
-                    list-style-type: none;
+                    padding: 1.5rem 0rem 0rem 0rem;
+                    margin-left: 1rem; 
+                    margin-right: 1rem;
                 }
                 .navbar:after {
                     content: "";
                     display: block;
                     margin: 0 auto; 
-                    width: 550px;
+                    width: 600px;
                     padding-top: 0.5rem;
                     border-bottom: 1px solid silver;
-                }   
+                }
+                
             }
             `}</style>
         </div>

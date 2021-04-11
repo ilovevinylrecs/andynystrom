@@ -47,19 +47,10 @@ export default function Home() {
             <style jsx>{`
             h1 {
             margin: 2rem 0rem 2rem 1.5rem;
-            font-size: 2rem;
             }
             ul {
             margin: 2rem 0rem 2rem -1.5rem;
             text-align: left;
-            }
-            .container {
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            grid-auto-rows: auto;
-            grid-row-gap: 0px;
-            grid-column-gap: 0px;
             }
             img {
             max-width: 95%;

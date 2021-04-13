@@ -1,6 +1,4 @@
-
 const asyncDiscogsCall = async () =>  {
-
     const Discogs = require('disconnect').Client;({
             consumerKey: process.env.DISCOGS_CONSUMER_KEY, 
             consumerSecret: process.env.DISCOGS_CONSUMER_SECRET
@@ -10,19 +8,16 @@ const asyncDiscogsCall = async () =>  {
 
     let done = false;
     let collection = [];
-    const { page = 1 } = req.query
+    let page = 1;
     while (done === false) {
-        const releases = await vinyls.getReleases('ilovevinylrecs', 0, {page: page, per_page: 500, sort: 'artist', sort_order: 'asc'}, function(err, data){
-            console.log(data);
-        });    
-        collection = releases.concat(result.releases);
-        if (result.pagination.page === result.pagination.pages) {
+        const releases = await vinyls.getReleases('ilovevinylrecs', 0, {page: page, per_page: 500, sort: 'artist', sort_order: 'asc'});    
+        collection = collection.concat(releases.releases);
+        if (page === releases.pagination.pages) {
         done = true
         break;
         }
-        console.log(collection);
-    }
-    
+        page++;     
+    }   
 }
 
-
+asyncDiscogsCall();

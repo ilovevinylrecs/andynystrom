@@ -3,7 +3,7 @@ const Discogs = require('disconnect').Client;({
     consumerSecret: process.env.DISCOGS_CONSUMER_SECRET
 });
 
-const fetchCollection = async () =>  {
+export const fetchCollection = async () =>  {
         const userAgent = "ilovevinylrecs";
         const versionDisconnect = "/1.2.2";
         const userAgentVersionDisconnect = userAgent.concat(versionDisconnect);

@@ -23,7 +23,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/_app.tsx"
-, "pages/api/messages/[id].js"  ],
+, "pages/api/messages/[id].js", "collection-export/collection-export.mjs"  ],
   "exclude": [
     "node_modules"
   ]

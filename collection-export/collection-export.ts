@@ -1,3 +1,5 @@
+const { fs, readFile, writeFile } = require('fs');
+const converter = require('json-2-csv');
 const Discogs = require('disconnect').Client;({
     consumerKey: process.env.DISCOGS_CONSUMER_KEY, 
     consumerSecret: process.env.DISCOGS_CONSUMER_SECRET
@@ -6,7 +8,7 @@ const Discogs = require('disconnect').Client;({
 const DISCOGS_USERNAME = "ilovevinylrecs";
 const DISCOGS_API_VERSION = "1.2.2";
 
-export const fetchCollectionAPI = async (): Promise<void> =>  {
+/*export*/ const fetchCollectionAPI = async ()/*: Promise<void>*/ =>  {
     const userAgentVersionDisconnect = `${DISCOGS_USERNAME}/${DISCOGS_API_VERSION}`;
 
     const collectionDataBase = new Discogs(userAgentVersionDisconnect, {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
@@ -22,9 +24,18 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         done = true
         }
         page++; 
-    
-    console.log(collection, collection.length);     
+
+        console.log(collection, collection.length);     
     }
 }
 
-fetchCollectionAPI();
+const dataOutput = fetchCollectionAPI();
+
+converter.json2csv(dataOutput, (err, csv) => {
+    try {
+        fs.writeFileSync('dataOutput.csv', csv);
+        console.log("File has been saved.");
+    } catch (err) {
+        console.log(err);
+    }
+});

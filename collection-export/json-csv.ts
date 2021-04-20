@@ -1,4 +1,5 @@
-const fs = require('fs');
+//example code -- this works and creates a new file with sample data
+export const fs = require('fs');
 const converter = require('json-2-csv');
 
 let documents = [

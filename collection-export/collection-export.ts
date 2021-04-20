@@ -8,7 +8,8 @@ const Discogs = require('disconnect').Client;({
 const DISCOGS_USERNAME = "ilovevinylrecs";
 const DISCOGS_API_VERSION = "1.2.2";
 
-/*export*/ const fetchCollectionAPI = async ()/*: Promise<void>*/ =>  {
+//comment out export and promise<void> in order to get script to run
+export const fetchCollectionAPI = async (): Promise<void> =>  {
     const userAgentVersionDisconnect = `${DISCOGS_USERNAME}/${DISCOGS_API_VERSION}`;
 
     const collectionDataBase = new Discogs(userAgentVersionDisconnect, {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
@@ -31,6 +32,8 @@ const DISCOGS_API_VERSION = "1.2.2";
 
 const dataOutput = fetchCollectionAPI();
 
+// this creates the file but data isn't ready yet, need to figure out how to async/await this so that all data
+// is present before it creates and writes to new file
 converter.json2csv(dataOutput, (err, csv) => {
     try {
         fs.writeFileSync('dataOutput.csv', csv);

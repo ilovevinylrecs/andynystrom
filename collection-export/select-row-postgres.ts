@@ -1,11 +1,15 @@
 const pg = require('pg');
 
-var config = {
-    user: 'andynystrom',
-    database: 'postgres'
-}
+//need to configure if not connecting to default database
+// var config = {
+        // user: "",
+        // host: "",
+        // database: "",
+        // password: "",
+        // port: "5432"
+// }
 
-const pool = new pg.Pool(config);
+const pool = new pg.Pool();
 
 pool.connect()
     .then(client => {

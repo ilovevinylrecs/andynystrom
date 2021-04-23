@@ -1,22 +1,12 @@
 const pg = require('pg');
-
-//need to configure if not connecting to default database
-// var config = {
-        // user: "",
-        // host: "",
-        // database: "",
-        // password: "",
-        // port: "5432"
-// }
-
 const pool = new pg.Pool();
 
 pool.connect()
     .then(client => {
-        return client.query('SELECT * FROM releases')
+        return client.query('SELECT * FROM new_releases')
             .then(res => {
                 client.release();
-                console.log(res.rows[0]);
+                console.log(res.rows[1743]);
             })
             .catch(e => {
                 client.release();

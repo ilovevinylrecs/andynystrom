@@ -1,4 +1,4 @@
-const { fs, readFile, writeFile } = require('fs');
+const fs = require('fs');
 const converter = require('json-2-csv');
 const Discogs = require('disconnect').Client;({
     consumerKey: process.env.DISCOGS_CONSUMER_KEY, 
@@ -24,21 +24,17 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         if (page === data.pagination.pages) {
         done = true
         }
-        page++; 
+        page++;  
+    };
 
-        console.log(collection, collection.length);     
-    }
-}
+    converter.json2csv(collection, (err, csv) => {
+        try {
+            fs.writeFileSync('dataOutput.csv', csv);
+            console.log("File has been saved.");
+        } catch (err) {
+            console.log(err);
+        }
+    });
+};
 
 const dataOutput = fetchCollectionAPI();
-
-// this creates the file but data isn't ready yet, need to figure out how to async/await this so that all data
-// is present before it creates and writes to new file
-converter.json2csv(dataOutput, (err, csv) => {
-    try {
-        fs.writeFileSync('dataOutput.csv', csv);
-        console.log("File has been saved.");
-    } catch (err) {
-        console.log(err);
-    }
-});

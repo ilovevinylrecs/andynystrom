@@ -1,4 +1,5 @@
-const pg = require('pg');
+//export here clears TS error - need help figuring out to make this work correctly
+export const pg = require('pg');
 const pool = new pg.Pool();
 
 //need to configure if not connecting to default database

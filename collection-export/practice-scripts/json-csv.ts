@@ -1,4 +1,5 @@
 //example code -- this works and creates a new file with sample data
+//export here clears TS error - need help figuring out to make this work correctly
 export const fs = require('fs');
 const converter = require('json-2-csv');
 

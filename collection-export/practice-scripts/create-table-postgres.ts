@@ -1,4 +1,5 @@
-const pg = require('pg');
+//export here clears TS error - need help figuring out to make this work correctly
+export const pg = require('pg');
 const pool = new pg.Pool();
 const fs = require("fs");
 const fastcsv = require("fast-csv");
@@ -12,7 +13,7 @@ const fastcsv = require("fast-csv");
         // port: "5432"
 // }
 
-CREATES table
+//CREATES table
 pool.connect()
     .then(client => {
         return client.query("CREATE TABLE new_releases (id VARCHAR (255) PRIMARY KEY, instance_id VARCHAR (255) NULL, date_added date NULL, master_id VARCHAR (255) NULL, master_url VARCHAR (255) NULL, resource_url VARCHAR (255) NULL, thumb VARCHAR (255) NULL, cover_image VARCHAR (255) NULL,album_title VARCHAR (255) NULL, year VARCHAR (4) NULL, format_name VARCHAR (255) NULL, format_descriptions VARCHAR (255) NULL, label_name VARCHAR (255) NULL, artist_name VARCHAR (255) NULL)")

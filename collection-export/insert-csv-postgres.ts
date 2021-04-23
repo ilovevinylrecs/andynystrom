@@ -2,8 +2,9 @@ const fs = require('fs');
 const fastcsv = require("fast-csv");
 const Pool = require("pg").Pool;
 
-let stream = fs.createReadStream("record-collection.csv");
-let csvData = [];
+let stream = fs.createReadStream("dataOutput.csv");
+//export here clears TS error - need help figuring out to make this work correctly
+export let csvData = [];
 let csvStream = fastcsv
   .parse()
   .on("data", (data) => {
@@ -20,7 +21,7 @@ let csvStream = fastcsv
         port: 5432
       });
     
-    const query = "INSERT INTO new_releases (id, instance_id, date_added, master_id, master_url, resource_url, thumb, cover_image, album_title, year, format_name, format_descriptions, label_name, artist_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)";
+    const query = "INSERT INTO new_releases (id, instance_id, date_added, rating, basic_information_id, basic_information_master_id, basic_information_master_url, basic_information_resource_url, basic_information_thumb, basic_information_cover_image, basic_information_title, basic_information_year, basic_information_formats, basic_information_labels, basic_information_artists, basic_information_genres, basic_information_styles) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)";
 
     pool.connect((err, client, done) => {
         if (err) throw err;

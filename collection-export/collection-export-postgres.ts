@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { Pool, Client } = require('pg');
+const dotenv =require('dotenv').config();
+
 const Discogs = require('disconnect').Client;({
     consumerKey: process.env.DISCOGS_CONSUMER_KEY, 
     consumerSecret: process.env.DISCOGS_CONSUMER_SECRET
@@ -9,7 +11,7 @@ const DISCOGS_USERNAME = "ilovevinylrecs";
 const DISCOGS_API_VERSION = "1.2.2";
 
 //comment out export and promise<void> in order to get script to run
-export const fetchCollectionAPI = async (): Promise<void> =>  {
+/*export*/ const fetchCollectionAPI = async ()/*: Promise<void>*/ =>  {
     const userAgentVersionDisconnect = `${DISCOGS_USERNAME}/${DISCOGS_API_VERSION}`;
 
     const collectionDataBase = new Discogs(userAgentVersionDisconnect, {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
@@ -24,7 +26,7 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         if (page === data.pagination.pages) {
         done = true
         }
-        page++;  
+        page++; 
     };
 
     const pool = new Pool();

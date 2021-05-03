@@ -30,6 +30,7 @@
     "date-fns": "^2.16.1",
     "discogs": "^0.4.4",
     "disconnect": "^1.2.1",
+    "dotenv": "^8.2.0",
     "fast-csv": "^4.3.6",
     "gray-matter": "^4.0.2",
     "json-2-csv": "^3.10.3",

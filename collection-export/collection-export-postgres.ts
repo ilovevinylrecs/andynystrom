@@ -11,7 +11,7 @@ const DISCOGS_USERNAME = "ilovevinylrecs";
 const DISCOGS_API_VERSION = "1.2.2";
 
 //comment out export and promise<void> in order to get script to run
-/*export*/ const fetchCollectionAPI = async ()/*: Promise<void>*/ =>  {
+export const fetchCollectionAPI = async (): Promise<void> =>  {
     const userAgentVersionDisconnect = `${DISCOGS_USERNAME}/${DISCOGS_API_VERSION}`;
 
     const collectionDataBase = new Discogs(userAgentVersionDisconnect, {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
@@ -29,7 +29,8 @@ const DISCOGS_API_VERSION = "1.2.2";
         page++; 
     };
 
-    const pool = new Pool();
+    const pool = new Pool({
+      });
 
     for (let i = 0; i < collection.length; i++) {
         let title = collection[i].basic_information.title.replace(/'/g, "''");
@@ -50,13 +51,13 @@ const DISCOGS_API_VERSION = "1.2.2";
             '${artist}', '${genre}', '${collection[i].basic_information.styles}'
         );`
 
-        pool.query(query, (err, res) => {
+        await pool.query(query, (err, res) => {
             console.log(err, res)
         })
+    }
 
-        if (i === collection.length) {
-            pool.end();
-        }
+    if (i === collection.length) {
+        pool.end();
     }
 }
 

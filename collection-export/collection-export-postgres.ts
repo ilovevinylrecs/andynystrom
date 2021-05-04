@@ -54,10 +54,8 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         await pool.query(query, (err, res) => {
             console.log(err, res)
         })
-    }
 
-    if (i === collection.length) {
-        pool.end();
+        await pool.end();
     }
 }
 

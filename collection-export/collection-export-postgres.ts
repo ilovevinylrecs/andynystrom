@@ -11,7 +11,7 @@ const DISCOGS_USERNAME = "ilovevinylrecs";
 const DISCOGS_API_VERSION = "1.2.2";
 
 //comment out export and promise<void> in order to get script to run
-/*export*/ const fetchCollectionAPI = async ()/*: Promise<void>*/ =>  {
+export const fetchCollectionAPI = async (): Promise<void> =>  {
     const userAgentVersionDisconnect = `${DISCOGS_USERNAME}/${DISCOGS_API_VERSION}`;
 
     const collectionDataBase = new Discogs(userAgentVersionDisconnect, {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
@@ -31,7 +31,7 @@ const DISCOGS_API_VERSION = "1.2.2";
 
     const pool = new Pool();
 
-    //checks to see if table exists, if not then builds new_releases table
+    //checks to see if table exists, if not then builds new_releases table - this is a placeholder, code doesn't work yet
     // if (!pool.query(`SELECT EXISTS (SELECT FROM new_releases)`)) {
     //         pool.connect()
     //             .then(client => {

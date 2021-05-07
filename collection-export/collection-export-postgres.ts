@@ -11,7 +11,7 @@ const DISCOGS_USERNAME = "ilovevinylrecs";
 const DISCOGS_API_VERSION = "1.2.2";
 
 //comment out export and promise<void> in order to get script to run
-export const fetchCollectionAPI = async (): Promise<void> =>  {
+/*export*/ const fetchCollectionAPI = async ()/*: Promise<void>*/ =>  {
     const userAgentVersionDisconnect = `${DISCOGS_USERNAME}/${DISCOGS_API_VERSION}`;
 
     const collectionDataBase = new Discogs(userAgentVersionDisconnect, {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
@@ -29,9 +29,41 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         page++; 
     };
 
-    const pool = new Pool({
-      });
+    const pool = new Pool();
 
+    //checks to see if table exists, if not then builds new_releases table
+    // if (!pool.query(`SELECT EXISTS (SELECT FROM new_releases)`)) {
+    //         pool.connect()
+    //             .then(client => {
+    //                 return client.query(`CREATE TABLE new_releases 
+    //                 (id VARCHAR (1000) PRIMARY KEY,
+    //                 instance_id VARCHAR (1000) NULL,
+    //                 date_added VARCHAR (1000) NULL,
+    //                 rating VARCHAR (1000) NULL,
+    //                 basic_information_id VARCHAR (1000) NULL,
+    //                 basic_information_master_id VARCHAR (1000) NULL,
+    //                 basic_information_master_url VARCHAR (1000) NULL,
+    //                 basic_information_resource_url VARCHAR (1000) NULL,
+    //                 basic_information_thumb VARCHAR (1000) NULL,
+    //                 basic_information_cover_image VARCHAR (1000) NULL,
+    //                 basic_information_title VARCHAR (1000) NULL,
+    //                 basic_information_year VARCHAR (4) NULL,
+    //                 basic_information_formats VARCHAR (1000) NULL,
+    //                 basic_information_labels VARCHAR (1000) NULL,
+    //                 basic_information_artists VARCHAR (1000) NULL,
+    //                 basic_information_genres VARCHAR (1000) NULL,
+    //                 basic_information_styles VARCHAR (1000) NULL
+    //                 ;`)
+    //             })
+    // }
+
+    //deletes old data in new_releases table
+    await pool.connect()
+        .then(client => {
+            return client.query("DELETE FROM new_releases")
+        })
+
+    //loops through discogs API and inserts data into new_releases table
     for (let i = 0; i < collection.length; i++) {
         let title = collection[i].basic_information.title.replace(/'/g, "''");
         let format = collection[i].basic_information.formats[0].name.replace(/'/g, "''");
@@ -48,8 +80,7 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
             '${collection[i].basic_information.master_url}', '${collection[i].basic_information.resource_url}',
             '${collection[i].basic_information.thumb}', '${collection[i].basic_information.cover_image}', '${title}',
             '${collection[i].basic_information.year}', '${format}', '${label}',
-            '${artist}', '${genre}', '${collection[i].basic_information.styles}'
-        );`
+            '${artist}', '${genre}', '${collection[i].basic_information.styles}');`
 
         await pool.query(query, (err, res) => {
             console.log(err, res)

@@ -18,6 +18,7 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
     let done = false;
     let collection = [];
     let page = 1;
+
     while (done === false) {
         const data = await collectionDataBase.getReleases(DISCOGS_USERNAME, 0, {page: page, per_page: 500, sort: 'artist', sort_order: 'asc'}); 
         
@@ -28,46 +29,34 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         page++; 
     };
 
+    let output = collection.map(item => `('${item.id}', '${item.instance_id}', 
+        '${item.date_added}', '${item.rating}', '${item.basic_information.id}', 
+        '${item.basic_information.master_id}', '${item.basic_information.master_url}', 
+        '${item.basic_information.resource_url}', '${item.basic_information.thumb}', 
+        '${item.basic_information.cover_image}', 
+        '${item.basic_information.title.replace(/'/g, "''")}', '${item.basic_information.year}', 
+        '${item.basic_information.formats[0].name.replace(/'/g, "''")}', 
+        '${item.basic_information.labels[0].name.replace(/'/g, "''")}', 
+        '${item.basic_information.artists[0].name.replace(/'/g, "''")}', 
+        '${item.basic_information.genres[0].replace(/'/g, "''")}', 
+        '${item.basic_information.styles}')`)
+
     const pool = new Pool();
 
-    //deletes old data in new_releases table
-    await pool.connect()
-        .then(client => {
-            return client.query("DELETE FROM new_releases")
-        })
-
-    let output = "";
-
-    //loops through discogs API and stores values in output string
-    for (let i = 0; i < collection.length; i++) {
-        let title = collection[i].basic_information.title.replace(/'/g, "''");
-        let format = collection[i].basic_information.formats[0].name.replace(/'/g, "''");
-        let label = collection[i].basic_information.labels[0].name.replace(/'/g, "''");
-        let artist = collection[i].basic_information.artists[0].name.replace(/'/g, "''");
-        let genre = collection[i].basic_information.genres[0].replace(/'/g, "''");
-
-        let values = `('${collection[i].id}', '${collection[i].instance_id}', '${collection[i].date_added}',
-        '${collection[i].rating}', '${collection[i].basic_information.id}', '${collection[i].basic_information.master_id}',
-        '${collection[i].basic_information.master_url}', '${collection[i].basic_information.resource_url}',
-        '${collection[i].basic_information.thumb}', '${collection[i].basic_information.cover_image}', '${title}',
-        '${collection[i].basic_information.year}', '${format}', '${label}',
-        '${artist}', '${genre}', '${collection[i].basic_information.styles}'),`
-
-        output += values;
-    }
-
-    //creates new string removing trailing comma in output string
-    let newOutput = output.slice(0, -1);
-
     //postgres insert statement    
-    let query = `INSERT INTO new_releases (id, instance_id, date_added, rating, basic_information_id, 
+    let query = `DELETE FROM new_releases;
+            INSERT INTO new_releases (id, instance_id, date_added, rating, basic_information_id, 
             basic_information_master_id, basic_information_master_url, basic_information_resource_url, 
             basic_information_thumb, basic_information_cover_image, basic_information_title, basic_information_year, 
             basic_information_formats, basic_information_labels, basic_information_artists, basic_information_genres, basic_information_styles) 
-            VALUES ${newOutput};`
+            VALUES ${output};`
  
     await pool.query(query, (err, res) => {
-        console.log(err, res)
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(res, 'Data insert succcessful')
+        }
     })
 }
 

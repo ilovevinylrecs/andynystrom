@@ -48,7 +48,25 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
     })
 
     //postgres insert statement    
-    const query = `DELETE FROM new_releases;
+    const query = `CREATE TABLE IF NOT EXISTS new_releases (
+            id VARCHAR (1000) PRIMARY KEY,
+            instance_id VARCHAR (1000) NULL,
+            date_added VARCHAR (1000) NULL,
+            rating VARCHAR (1000) NULL,
+            basic_information_id VARCHAR (1000) NULL,
+            basic_information_master_id VARCHAR (1000) NULL,
+            basic_information_master_url VARCHAR (1000) NULL,
+            basic_information_resource_url VARCHAR (1000) NULL,
+            basic_information_thumb VARCHAR (1000) NULL,
+            basic_information_cover_image VARCHAR (1000) NULL,
+            basic_information_title VARCHAR (1000) NULL,
+            basic_information_year VARCHAR (4) NULL,
+            basic_information_formats VARCHAR (1000) NULL,
+            basic_information_labels VARCHAR (1000) NULL,
+            basic_information_artists VARCHAR (1000) NULL,
+            basic_information_genres VARCHAR (1000) NULL,
+            basic_information_styles VARCHAR (1000) NULL);
+            DELETE FROM new_releases;
             INSERT INTO new_releases (id, instance_id, date_added, rating, basic_information_id, 
             basic_information_master_id, basic_information_master_url, basic_information_resource_url, 
             basic_information_thumb, basic_information_cover_image, basic_information_title, basic_information_year, 

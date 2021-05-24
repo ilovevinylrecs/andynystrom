@@ -43,7 +43,9 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         page++;
     }
 
-    const pool = new Pool();
+    const pool = new Pool({
+        connectionString: process.env.DATABASE_URL
+    })
 
     //postgres insert statement    
     const query = `DELETE FROM new_releases;

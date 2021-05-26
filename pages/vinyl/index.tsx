@@ -13,7 +13,7 @@ export default function Vinyl() {
     fetchData();
   }, [])
 
-  // if (releases.length === 0) return 'loading records (there are a lot of them), hang tight.'
+  if (releases.length === 0) return 'waiting to connect to database'
 
   return (
     <div>

@@ -7,7 +7,7 @@ export default function Vinyl() {
 
   useEffect(() => {
     async function fetchData(){
-        const data = await fetch(`/api/postgres`)
+        const data = await fetch(`/api/vinyls`)
         setReleases(await data.json())
     }
     fetchData();

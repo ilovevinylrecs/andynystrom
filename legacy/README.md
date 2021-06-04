@@ -1,2 +1,0 @@
-# andynystrom
-Personal website

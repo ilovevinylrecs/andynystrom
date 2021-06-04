@@ -1,15 +1,20 @@
-export default async (req, res) => {
-    const { page = 1 } = req.query
-    const Discogs = require('disconnect').Client;({
-        consumerKey: process.env.DISCOGS_CONSUMER_KEY, 
-        consumerSecret: process.env.DISCOGS_CONSUMER_SECRET
-    });
+const pgp = require('pg-promise')();
+const db = pgp(process.env.DATABASE_URL);
 
-    const vinyls = await new Discogs
-        ('ilovevinylrecs/1.0', {userToken: process.env.DISCOGS_USER_TOKEN}).user().collection();
-    
-    const releases = await vinyls.getReleases('ilovevinylrecs', 0, {page: page, per_page: 500, 
-        sort: 'artist', sort_order: 'asc'}); 
-        
-    res.json(releases)  
-}
+export default async (req, res) => {
+    try {
+       const records = await db.any(`SELECT 
+       basic_information_thumb, 
+       basic_information_artists, 
+       basic_information_title, 
+       basic_information_formats_text, 
+       basic_information_formats, 
+       basic_information_labels, 
+       basic_information_year 
+       FROM new_releases`);
+       res.status(200).json(records);
+    } catch (e) {
+       console.error(e);
+       res.status(500).end();
+    }
+ };

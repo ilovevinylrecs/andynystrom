@@ -1,28 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import FadeIn from 'react-fade-in';
 import Head from 'next/head'
 
 export default function Vinyl() {
 
   const [releases, setReleases] = useState<any>([])
 
-  const [page, setPage] = useState(1)
-
-  const onClickNextButton = () => setPage(page + 1)
-
-  const onClickPrevButton = () => {
-    if (page > 1) setPage(page - 1)
-  }
-
   useEffect(() => {
     async function fetchData(){
-        const data = await fetch(`/api/vinyls?page=${page}`)
+        const data = await fetch(`/api/vinyls`)
         setReleases(await data.json())
     }
     fetchData();
-  }, [page])
+  }, [])
 
-  if (releases.length === 0) return 'loading records (there are a lot of them), hang tight.'
+  if (releases.length === 0) return 'waiting to connect to database'
 
   return (
     <div>
@@ -32,47 +23,33 @@ export default function Vinyl() {
       
       <h1>Record Collection</h1>
 
-      <p>total collection: {releases.pagination.items}</p>
-
-      <p>page: {page}</p>
-
-      <div className="button">
-        <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
-      </div>
-      
-      <FadeIn delay={200} transitionDuration={1000}>
+       <p>Total Collection: {releases.length}</p> 
 
           <div className="container">
-            {releases.releases.map((release) => (
+            {releases.map((release) => (
               <ul>
-                <img src={release.basic_information.thumb} />
-                {release.basic_information.artists[0].name.replace(/\s\(\d+\)$/, '')} 
+                <img src={release.basic_information_thumb} />
+                {release.basic_information_artists} 
                 <br />
-                {release.basic_information.title}  
+                {release.basic_information_title}  
                 <br />
-                {release.basic_information.formats[0].text} {release.basic_information.formats[0].descriptions[0]}
+                {release.basic_information_formats_text.replace("undefined", "")} {release.basic_information_formats}
                 <br />
-                {release.basic_information.labels[0].name.replace(/\s\(\d+\)$/, '')}
+                {release.basic_information_labels}
                 <br />
-                {release.basic_information.year} 
+                {release.basic_information_year} 
               </ul>
             ))} 
           </div>
 
-      </FadeIn>
-
-      <div className="button">
-        <a href="#" onClick={onClickPrevButton}>prev </a> | <a href="#" onClick={onClickNextButton}> next</a>
-      </div>
-
       <style jsx>{`
         h1 {
         font-size: 2rem;
-        margin: 2rem 0rem 2rem 1.5rem;
+        margin: 2rem 0rem 2rem 1rem;
         }
         p,
         .button {
-        margin: 1rem 0rem 1rem 1.5rem;
+        margin: 1rem 0rem 1rem 1rem;
         font-size: 1rem;
         }
         ul {

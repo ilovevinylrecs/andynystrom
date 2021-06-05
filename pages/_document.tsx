@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import gtag, { install } from 'ga-gtag';
 
 export default class MyDocument extends Document {
   render() {

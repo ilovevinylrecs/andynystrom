@@ -6,9 +6,9 @@ export default function Home() {
       <Head>   
           <title>Andy Nystrom - Home</title>
       </Head>
-      
+
       <div className="home">
-        <h1>ANDY NYSTROM</h1>
+        ANDY NYSTROM
       </div>
 
       <style jsx>{`
@@ -20,7 +20,8 @@ export default function Home() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          font-size: 5vw;
+          font-size: 10vw;
+          margin: 4rem 0rem 0rem 0rem;
         }
       `}</style>
     </div>

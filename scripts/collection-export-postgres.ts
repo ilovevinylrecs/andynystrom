@@ -45,7 +45,12 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
     }
 
     const pool = new Pool({
-        connectionString: process.env.DATABASE_URL
+        user: process.env.HEROKU_PGUSER,
+        password: process.env.HEROKU_PGPASSWORD,
+        host: process.env.HEROKU_PGHOST,
+        port: process.env.HEROKU_PGPORT,
+        database: process.env.HEROKU_PGDATABASE,
+        ssl: true
     })
 
     //postgres insert statement    

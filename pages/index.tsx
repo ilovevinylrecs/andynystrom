@@ -2,12 +2,14 @@ import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div className="home">
-      <Head>
-        <title>Andy Nystrom - Home</title>
+    <div className="page">
+      <Head>   
+          <title>Andy Nystrom - Home</title>
       </Head>
-
-      <h1>ANDY NYSTROM</h1>
+      
+      <div className="home">
+        <h1>ANDY NYSTROM</h1>
+      </div>
 
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');

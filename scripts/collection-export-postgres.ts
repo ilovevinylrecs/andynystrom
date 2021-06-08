@@ -50,7 +50,7 @@ export const fetchCollectionAPI = async (): Promise<void> =>  {
         host: process.env.HEROKU_PGHOST,
         port: process.env.HEROKU_PGPORT,
         database: process.env.HEROKU_PGDATABASE,
-        ssl: true
+        ssl: { rejectUnauthorized: false }
     })
 
     //postgres insert statement    

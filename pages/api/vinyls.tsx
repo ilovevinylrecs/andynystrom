@@ -1,5 +1,12 @@
 const pgp = require('pg-promise')();
-const db = pgp(process.env.DATABASE_URL);
+const db = pgp({
+   user: process.env.HEROKU_PGUSER,
+   password: process.env.HEROKU_PGPASSWORD,
+   host: process.env.HEROKU_PGHOST,
+   port: process.env.HEROKU_PGPORT,
+   database: process.env.HEROKU_PGDATABASE,
+   ssl: { rejectUnauthorized: false }
+});
 
 export default async (req, res) => {
     try {

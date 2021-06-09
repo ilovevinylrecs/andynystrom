@@ -12,8 +12,6 @@ export default function Home() {
       </div>
 
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
-
         .home {
           font-family: 'Raleway', sans-serif;
           display: flex;

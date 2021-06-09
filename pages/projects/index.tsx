@@ -21,7 +21,7 @@ export default function Projects() {
             Andy Nystrom - Projects
         </Head>
 
-        <h1>Projects</h1>
+        <h1>PROJECTS</h1>
 
         {project.map((projectContent) =>
             <React.Fragment>

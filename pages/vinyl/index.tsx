@@ -21,7 +21,7 @@ export default function Vinyl() {
         <title>Andy Nystrom - Vinyl</title>
       </Head>
       
-      <h1>Record Collection</h1>
+      <h1>RECORD COLLECTION</h1>
 
        <p>Total Collection: {releases.length}</p> 
 

@@ -48,7 +48,7 @@ export default function Home() {
                 <title>Andy Nystrom - About</title>
             </Head>
 
-            <h1>About</h1>
+            <h1>ABOUT</h1>
 
             {about.map((aboutContent) =>
                 <p>

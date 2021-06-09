@@ -21,7 +21,7 @@ export default function Home() {
                 <title>Andy Nystrom - Messages</title>
             </Head>
                 
-            <h1>Messages</h1>
+            <h1>MESSAGES</h1>
             
             {messages.map((message) =>
             <Link href={`/messages/${message.sys.id}`}><a>

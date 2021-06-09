@@ -21,7 +21,7 @@ export default function Home() {
                 <title>Andy Nystrom - Flatfile</title>
             </Head>
 
-            <h1>Flatfile</h1>
+            <h1>FLATFILE</h1>
 
             <FadeIn delay={200} transitionDuration={1000}>
 
@@ -47,6 +47,7 @@ export default function Home() {
             <style jsx>{`
             h1 {
             margin: 2rem 0rem 2rem 1.5rem;
+            font-size: 2rem;
             }
             ul {
             margin: 2rem 0rem 2rem -1.5rem;
